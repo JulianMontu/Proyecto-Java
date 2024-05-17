@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Menu {
     private Club club = new Club();
-    private int posicion;
+    boolean isTrue = true;
     public ArrayList<Usuario> usuarios;
 
     public Menu() {
@@ -14,7 +14,7 @@ public class Menu {
 
 
     public void inicio() {
-        String[] menus = {"Menu Club", "Menu Factura", "Estado Financiero"};
+        String[] menus = {"Menu Club", "Menu Factura", "Estado Financiero", "Salir"};
         Usuario usuario = new Usuario("Miguel", "1234");
         this.usuarios.add(usuario);
 
@@ -34,6 +34,9 @@ public class Menu {
                     case "Estado Financiero":
                         mostrarEstadoFinanciero();
                         break;
+                    case "Salir":
+                        isTrue = false;
+                        break;
                     default:
                         break;
                 }
@@ -41,7 +44,7 @@ public class Menu {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
-        } while (true);
+        } while (isTrue);
     }
 
     public void menuClub() {
@@ -97,13 +100,13 @@ public class Menu {
         String pCedula = (String) JOptionPane.showInputDialog(null, "Ingrese su Cedula");
         String pConcepto = (String) JOptionPane.showInputDialog(null, "Ingrese el Concepto");
         double pValor = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el valor"));
-        club.registrarConsumo(pCedula, pNombre,pConcepto,pValor);
+        club.registrarConsumo(pCedula, pNombre, pConcepto, pValor);
     }
 
     public void pagar() {
         String pCedula = (String) JOptionPane.showInputDialog(null, "Ingrese su Cedula");
         int pIndiceFactura = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el indice de la factura"));
-        club.pagarFacturaSocio(pCedula,pIndiceFactura);
+        club.pagarFacturaSocio(pCedula, pIndiceFactura);
     }
 
     public void estadoSocio() {
@@ -111,7 +114,7 @@ public class Menu {
         club.estadoDeSocio(pCedula);
     }
 
-    public void mostrarEstadoFinanciero(){
+    public void mostrarEstadoFinanciero() {
         club.mostrarEstadoFinanciero();
     }
 
