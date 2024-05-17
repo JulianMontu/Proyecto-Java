@@ -35,4 +35,8 @@ public class Factura {
     public void setNombreSocio(String nombreSocio) {
         this.nombreSocio = nombreSocio;
     }
+
+    public String conceptoCompleto(){
+        return "** Concepto factura: " + concepto + " **Nombre Socio: " + nombreSocio + " ** Valor de la factura: " + valor;
+    }
 }

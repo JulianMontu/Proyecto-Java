@@ -9,7 +9,14 @@ public class SocioVip extends Socio {
     public SocioVip() {
     }
 
+    public SocioVip(String nombre, String cedula, double fondos, String tipoPlan) {
+        super(nombre, cedula, fondos, tipoPlan);
+        super.setFondos(FONDO_INICIAL);
+    }
+
     public SocioVip(String nombre, String cedula, String tipoPlan, ArrayList<Factura> facturas, ArrayList<String> autorizados, double maxFondos, double fondos) {
         super(nombre, cedula, tipoPlan, facturas, autorizados, maxFondos, fondos);
     }
+
+
 }
